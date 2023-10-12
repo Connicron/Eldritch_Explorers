@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://xinusimkvkl6"]
+[gd_scene load_steps=6 format=3 uid="uid://xinusimkvkl6"]
+
+[ext_resource type="Texture2D" path="res://Textures/Skybox/panorama_image (1).png" id="1_fv4h4"]
+[ext_resource type="PackedScene" uid="uid://soqatsv56vqk" path="res://Assets/Models/carrier/carrier.fbx" id="2_61mfs"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_l8bkl"]
+panorama = ExtResource("1_fv4h4")
+
+[sub_resource type="Sky" id="Sky_kwq7j"]
+sky_material = SubResource("PanoramaSkyMaterial_l8bkl")
+radiance_size = 6
+
+[sub_resource type="Environment" id="Environment_ltolk"]
+background_mode = 2
+sky = SubResource("Sky_kwq7j")
+sky_custom_fov = 90.0
 
 [node name="Ship_Testing" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ltolk")
+
+[node name="carrier" parent="." instance=ExtResource("2_61mfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.757, 41.615, -92.3812)

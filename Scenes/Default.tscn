@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://m7nbyhkk43st"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_i0d8e"]
+[ext_resource type="Script" path="res://Player.gd" id="1_2eo2a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3eief"]
 
@@ -28,7 +28,7 @@ environment = SubResource("Environment_bnkwt")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232239, 0)
-script = ExtResource("1_i0d8e")
+script = ExtResource("1_2eo2a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.908785, 0)
