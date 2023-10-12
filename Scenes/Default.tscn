@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://m7nbyhkk43st"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_i0d8e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3eief"]
+
+[sub_resource type="Sky" id="Sky_44ghe"]
+resource_local_to_scene = true
+sky_material = SubResource("ShaderMaterial_3eief")
+process_mode = 1
+radiance_size = 5
+
+[sub_resource type="Environment" id="Environment_bnkwt"]
+background_mode = 2
+sky = SubResource("Sky_44ghe")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_71bjl"]
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 4.89333, 14.3439, -7.07194)
+light_color = Color(0.941176, 0.858824, 0.827451, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bnkwt")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232239, 0)
+script = ExtResource("1_i0d8e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.908785, 0)
+shape = SubResource("CapsuleShape3D_71bjl")
+
+[node name="Head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64885, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+
+[node name="Node3D" type="Node3D" parent="."]
